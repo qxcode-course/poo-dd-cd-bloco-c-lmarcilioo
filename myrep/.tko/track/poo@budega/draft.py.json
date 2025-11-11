@@ -1,0 +1,154 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-11_00-29-31",
+            "content": "@@ -223,24 +223,8 @@\n self\n-, numCaixas: int\n ):%0A \n@@ -310,336 +310,4 @@\n = %5B%5D\n-%0A        numCaixas = numCaixas%0A%0A    def __str__(self):%0A        return f%22Caixas: %5B%7Bself.caixas%7D%5Dn/Espera: %5B%7Bself.espera%7D%5D%22%0A%0A%0A%0A%0Adef main():%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list %5Bstr%5D = line.split(%22%22)%0A        if args %5B0%5D == %22end%22:%0A            break%0A        if args %5B0%5D == %22init%22:%0A%0A%0Amain()\n",
+            "lines": "15"
+        },
+        {
+            "label": "2025-11-11_00-38-59",
+            "content": "@@ -335,72 +335,29 @@\n     \n-for _ in range (numCaixas):%0A            self.caixas.append(None)\n+numCaixas = numCaixas\n %0A%0A  \n@@ -421,10 +421,10 @@\n as%7D%5D\n-%5C\n n\n+/\n Espe\n@@ -464,28 +464,8 @@\n ():%0A\n-    budega = Market%0A\n     \n@@ -650,33 +650,8 @@\n t%22:%0A\n-            print(budega)\n %0A%0Ama\n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-11-11_00-42-03",
+            "content": "@@ -1,485 +1,69 @@\n-class Pessoa:%0A    def __init__ (self, nome: str):%0A        self.__nome = nome%0A%0A    def __str__ (self):%0A        return self.__nome%0A    %0A    def getNome(self):%0A        return self.__nome%0A    %0A%0Aclass Market:%0A    def __init__ (self, numCaixas: int):%0A        self.caixas: list%5BPessoa %7C None%5D = %5B%5D%0A        self.espera: list%5BPessoa%5D = %5B%5D%0A        for _ in range (numCaixas):%0A            self.caixas.append(None)%0A%0A    def __str__(self):%0A        caixas = %22, %22.join(%5B%22-----%22 if x is None else \n+@@ -424,126 +424,8 @@%0A f):%250A%0A-        caixas = %2522, %2522.join(%255B\n str \n@@ -86,19 +86,23 @@\n f.caixas\n-%5D)%0A\n+%255D)%250A\n         \n@@ -114,19 +114,25 @@\n a = \n-%22, %22\n+%2522, %2522\n .join(\n-%5B\n+%255B\n str \n@@ -159,342 +159,172 @@\n pera\n-%5D)%0A        return f%22Caixas: %5B%7Bcaixas%7D%5D%5CnEspera: %5B%7Bespera%7D%5D%22%0A%0A%0A%0A%0Adef main():%0A    budega = Market%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list %5Bstr%5D = line.split(%22%22)%0A        if args %5B0%5D == %22end%22:%0A            break%0A        if args %5B0%5D == %22init%22:%0A            budega = Market(numCaixas=int(args%5B1%5D))%0A\n+%255D)%250A%0A     %0A@@ -447,16 +447,21 @@%0A ixas: %255B%257B%0A+self.%0A caixas%257D%255D%0A@@ -472,16 +472,21 @@%0A pera: %255B%257B%0A+self.%0A espera%257D%255D%0A@@ -712,40 +712,8 @@%0A it%2522:%0A-%250A%250A\n     \n@@ -339,52 +339,35 @@\n rgs \n-%5B0%5D\n+%255B0%255D\n  == \n-%22\n+%2522\n show\n-%22:%0A            print(budega)%0A%0Amain()\n+%2522:%0A %250A   %0A\n",
+            "lines": "16"
+        },
+        {
+            "label": "2025-11-11_00-59-49",
+            "content": "@@ -761,17 +761,16 @@\n .split(%22\n- \n %22)%0A     \n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-11-11_01-00-17",
+            "content": "@@ -1,637 +1,47 @@\n-class Pessoa:%0A    def __init__ (self, nome: str):%0A        self.__nome = nome%0A%0A    def __str__ (self):%0A        return self.__nome%0A    %0A    def getNome(self):%0A        return self.__nome%0A    %0A%0Aclass Market:%0A    def __init__ (self, numCaixas: int):%0A        self.caixas: list%5BPessoa %7C None%5D = %5B%5D%0A        self.espera: list%5BPessoa%5D = %5B%5D%0A        for _ in range (numCaixas):%0A            self.caixas.append(None)%0A%0A    def __str__(self):%0A        caixas = %22, %22.join(%5B%22-----%22 if x is None else str (x) for x in self.caixas%5D)%0A        espera = %22, %22.join(%5Bstr (x) for x in self.espera%5D)%0A        return f%22Caixas: %5B%7Bcaixas%7D%5D%5CnEspera: %5B%7Bespera%7D%5D%22%0A    %0A\n+@@ -625,87 +625,8 @@%0A %257D%255D%2522%250A%0A-    %250A\n     \n@@ -74,17 +74,19 @@\n Pessoa):\n-%0A\n+%250A\n         \n@@ -115,340 +115,57 @@\n son)\n-%0A%0A%0A%0Adef main():%0A    budega = Market%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list %5Bstr%5D = line.split(%22 %22)%0A        if args %5B0%5D == %22end%22:%0A            break%0A        if args %5B0%5D == %22init%22:%0A            budega = Market(numCaixas=int(args%5B1%5D))%0A        if args %5B0%5D == %22show%22:%0A            print(bud\n+%250A%0A %250A%250A%250A%250A%0A@@ -956,67 +956,8 @@%0A \n ega)%0A\n+-%250A\n     \n@@ -180,25 +180,35 @@\n rgs \n-%5B0%5D\n+%255B0%255D\n  == \n-%22\n+%2522\n arrive\n-%22:%0A\n+%2522:%250A\n     \n@@ -232,14 +232,15 @@\n rive\n-()%0A%0Amain()\n+%0A %250A%250Ama%0A\n",
+            "lines": "8"
+        },
+        {
+            "label": "2025-11-11_01-04-04",
+            "content": "@@ -1089,16 +1089,18 @@\n a.arrive\n+()\n %0A%0Amain()\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-11-11_01-04-12",
+            "content": "@@ -738,11 +738,8 @@\n rket\n-(1)\n %0A   \n@@ -1068,45 +1068,8 @@\n e%22:%0A\n-            pessoa = Pessoa(args%5B0%5D)%0A\n     \n@@ -1093,17 +1093,8 @@\n rive\n- (pessoa)\n %0A%0Ama\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-11-11_01-23-26",
+            "content": "@@ -1129,16 +1129,17 @@\n a.arrive\n+ \n (pessoa)\n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-11_01-23-49",
+            "content": "@@ -739,9 +739,9 @@\n ket(\n-5\n+1\n )%0A  \n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-11_01-25-53",
+            "content": "@@ -734,16 +734,19 @@\n = Market\n+(5)\n %0A    whi\n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-11_01-26-30",
+            "content": "@@ -1097,17 +1097,17 @@\n oa(args%5B\n-1\n+0\n %5D)%0A     \n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-11_01-28-31",
+            "content": "@@ -705,114 +705,8 @@\n n)%0A%0A\n-    def call (self, index: int):%0A        self.caixas%5Bindex%5D = self.espera%5B0%5D%0A        del self.espera %5B0%5D%0A%0A\n %0A%0Ade\n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-11_01-33-39",
+            "content": "@@ -1244,77 +1244,8 @@\n soa)\n-%0A        if args %5B0%5D == %22call%22:%0A            budega.call%0A%0A            \n %0A%0Ama\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-11_01-34-19",
+            "content": "@@ -1288,63 +1288,33 @@\n     \n-change = str(args%5B1%5D)%0A            budega.call(change)%0A%0A\n+budega.call%0A%0A            \n %0A%0Ama\n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-11-11_01-35-14",
+            "content": "@@ -1288,35 +1288,63 @@\n     \n-budega.call()%0A%0A            \n+change = str(args%5B1%5D)%0A            budega.call(change)%0A%0A\n %0A%0Ama\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-11_01-35-29",
+            "content": "@@ -1276,41 +1276,8 @@\n l%22:%0A\n-            index = int(args%5B1%5D)%0A\n     \n@@ -1299,15 +1299,9 @@\n call\n- (index\n+(\n )%0A%0A \n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-11-11_01-37-06",
+            "content": "@@ -811,76 +811,8 @@\n 0%5D%0A%0A\n-    def finish (self, index: int):%0A        self.caixas%5Bindex%5D = None\n %0A%0Ade\n@@ -1340,119 +1340,8 @@\n dex)\n-%0A        if args %5B0%5D == %22finish%22%0A            index = int(args%5B1%5D)%0A            budega.finish(index)%0A            \n %0A%0A  \n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-11_01-41-49",
+            "content": "@@ -1436,17 +1436,16 @@\n %22finish%22\n-:\n %0A       \n@@ -1503,17 +1503,42 @@\n (index)%0A\n-%0A\n+            %0A%0A            \n %0A%0Amain()\n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-11-11_01-42-06",
+            "content": "@@ -738,93 +738,8 @@\n t):%0A\n-        if self.caixas%5Bindex%5D is not None:%0A            print (%22fail: caixa ocupado%22)%0A\n     \n",
+            "lines": "58"
+        },
+        {
+            "label": "2025-11-11_01-43-56",
+            "content": "@@ -823,27 +823,8 @@\n o%22)%0A\n-            return%0A\n     \n",
+            "lines": "60"
+        },
+        {
+            "label": "2025-11-11_01-45-16",
+            "content": "@@ -842,82 +842,8 @@\n urn%0A\n-        if len(self.espera) == 0:%0A            print(%22fail: sem clientes%22)%0A\n     \n",
+            "lines": "61"
+        },
+        {
+            "label": "2025-11-11_01-47-09",
+            "content": "@@ -738,77 +738,8 @@\n t):%0A\n-        if index %3C0 or index %3E= len(self.caixas):%0A            return%0A\n     \n",
+            "lines": "63"
+        },
+        {
+            "label": "2025-11-11_01-48-49",
+            "content": "@@ -788,37 +788,38 @@\n s):%0A            \n-b\n re\n-ak\n+turn\n %0A        if self\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-11_01-49-09",
+            "content": "@@ -788,38 +788,37 @@\n s):%0A            \n+b\n re\n-turn\n+ak\n %0A        if self\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-11_01-49-16",
+            "content": "@@ -981,35 +981,16 @@\n entes%22)%0A\n-            return%0A\n         \n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-11_01-51-37",
+            "content": "@@ -737,24 +737,85 @@\n nt):%0A       \n+ if index %3C0 or index %3E= len(self.caixas):%0A            return\n %0A        if \n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-11_01-51-49",
+            "content": "@@ -726,32 +726,40 @@\n f, index: int):%0A\n+       %0A\n         if self.\n@@ -1051,106 +1051,8 @@\n t):%0A\n-         if index %3C0 or index %3E= len(self.caixas):%0A            print (%22fail: caixa inexistente%22)%0A \n     \n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-11_01-53-01",
+            "content": "@@ -1136,35 +1136,16 @@\n tente%22)%0A\n-            return%0A\n         \n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-11_01-53-11",
+            "content": "@@ -1159,90 +1159,8 @@\n urn%0A\n-         if self.caixas %5Bindex%5D is None:%0A             print (%22fail: caixa vazio%22)%0A\n     \n",
+            "lines": "67"
+        },
+        {
+            "label": "2025-11-11_01-54-15",
+            "content": "class Pessoa:\n    def __init__ (self, nome: str):\n        self.__nome = nome\n\n    def __str__ (self):\n        return self.__nome\n    \n    def getNome(self):\n        return self.__nome\n    \n\nclass Market:\n    def __init__ (self, numCaixas: int):\n        self.caixas: list[Pessoa | None] = []\n        self.espera: list[Pessoa] = []\n        for _ in range (numCaixas):\n            self.caixas.append(None)\n\n    def __str__(self):\n        caixas = \", \".join([\"-----\" if x is None else str (x) for x in self.caixas])\n        espera = \", \".join([str (x) for x in self.espera])\n        return f\"Caixas: [{caixas}]\\nEspera: [{espera}]\"\n    \n    def arrive (self, person: Pessoa):\n        self.espera.append(person)\n\n    def call (self, index: int):\n        if self.caixas[index] is not None:\n            print (\"fail: caixa ocupado\")\n            return\n        if len(self.espera) == 0:\n            print(\"fail: sem clientes\")\n            return\n        self.caixas[index] = self.espera[0]\n        del self.espera [0]\n\n    def finish (self, index: int):\n         if index <0 or index >= len(self.caixas):\n            print (\"fail: caixa inexistente\")\n            return\n         if self.caixas [index] is None:\n             print (\"fail: caixa vazio\")\n         self.caixas[index] = None\n\ndef main():\n    budega = Market\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args: list [str] = line.split(\" \")\n        if args [0] == \"end\":\n            break\n        if args [0] == \"init\":\n            budega = Market(numCaixas=int(args[1]))\n        if args [0] == \"show\":\n            print(budega)\n        if args [0] == \"arrive\":\n            pessoa = Pessoa(args[1])\n            budega.arrive(pessoa)\n        if args [0] == \"call\":\n            index = int(args[1])\n            budega.call (index)\n        if args [0] == \"finish\":\n            index = int(args[1])\n            budega.finish(index)\n\n\n\nmain()",
+            "lines": "69"
+        }
+    ]
+}
