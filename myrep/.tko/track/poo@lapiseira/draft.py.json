@@ -1,0 +1,49 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-11_19-21-34",
+            "content": "@@ -1,365 +0,0 @@\n-class Lead:%0A    def __init__(self, thickness:int, size: int, hardness: str): %0A        self.thickness = thickness%0A        self.size = size%0A        self.hardness = hardness%0A%0A    #def __str__(self):%0A        #return %0A%0Aclass Pencil:%0A    def __init__(self, thickness:int):%0A        self.thickness = thickness%0A        self.tip: Lead %7C None%0A        self.barrel: Array %3CLead%3E\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-11-11_19-32-28",
+            "content": "@@ -350,486 +350,16 @@\n el: \n-Lead%0A%0A    def __str__ (self):%0A        return %22calibre: %7Bself.thickness%7D, bico: %5B%7Bself.tip%7D%5D, tambor: %3C%7Bself.barrel%7D%3E%22%0A    %0Adef main():%0A    grafite = Pencil%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list%5Bstr%5D = line.split(%22 %22)%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22init%22:%0A            thickness = int(args%5B1%5D)%0A            grafite = Pencil(thickness)%0A        if args %5B0%5D == %22show%22:%0A            print(grafite)%0A%0Amain()\n+Array %3CLead%3E\n",
+            "lines": "14"
+        },
+        {
+            "label": "2025-11-11_19-48-46",
+            "content": "@@ -38,20 +38,18 @@\n ickness:\n-floa\n+in\n t, size:\n@@ -254,20 +254,18 @@\n ickness:\n-floa\n+in\n t):%0A    \n@@ -714,12 +714,10 @@\n s = \n-floa\n+in\n t(ar\n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-49-25",
+            "content": "@@ -395,17 +395,16 @@\n  return \n-f\n %22calibre\n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-49-36",
+            "content": "@@ -332,15 +332,8 @@\n None\n- = None\n %0A   \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-49-57",
+            "content": "@@ -329,16 +329,22 @@\n  %7C None \n+= None\n %0A       \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-50-12",
+            "content": "@@ -265,40 +265,8 @@\n loat\n-, tip: Lead %7C None, barrel: Lead\n ):%0A \n@@ -319,14 +319,22 @@\n .tip\n- = tip\n+: Lead %7C None \n %0A   \n@@ -353,17 +353,14 @@\n rrel\n- = barrel\n+: Lead\n %0A%0A  \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-53-50",
+            "content": "@@ -762,67 +762,8 @@\n 1%5D)%0A\n-            tip = (args%5B2%5D)%0A            barrel = (args%5B3%5D)%0A\n     \n@@ -800,21 +800,8 @@\n ness\n-, tip, barrel\n )%0A  \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-11_19-57-17",
+            "content": "class Lead:\n    def __init__(self, thickness:float, size: int, hardness: str): \n        self.thickness = thickness\n        self.size = size\n        self.hardness = hardness\n\n    #def __str__(self):\n        #return \n\nclass Pencil:\n    def __init__(self, thickness:float, tip: Lead | None, barrel: Lead):\n        self.thickness = thickness\n        self.tip = tip\n        self.barrel = barrel\n\n    def __str__ (self):\n        return f\"calibre: {self.thickness}, bico: [{self.tip}], tambor: <{self.barrel}>\"\n    \ndef main():\n    grafite = Pencil\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n        if args[0] == \"end\":\n            break\n        if args[0] == \"init\":\n            thickness = float(args[1])\n            tip = (args[2])\n            barrel = (args[3])\n            grafite = Pencil(thickness, tip, barrel)\n        if args [0] == \"show\":\n            print(grafite)\n\nmain()",
+            "lines": "35"
+        }
+    ]
+}
