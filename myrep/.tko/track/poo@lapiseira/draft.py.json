@@ -42,8 +42,308 @@
         },
         {
             "label": "2025-11-11_19-57-17",
-            "content": "class Lead:\n    def __init__(self, thickness:float, size: int, hardness: str): \n        self.thickness = thickness\n        self.size = size\n        self.hardness = hardness\n\n    #def __str__(self):\n        #return \n\nclass Pencil:\n    def __init__(self, thickness:float, tip: Lead | None, barrel: Lead):\n        self.thickness = thickness\n        self.tip = tip\n        self.barrel = barrel\n\n    def __str__ (self):\n        return f\"calibre: {self.thickness}, bico: [{self.tip}], tambor: <{self.barrel}>\"\n    \ndef main():\n    grafite = Pencil\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n        if args[0] == \"end\":\n            break\n        if args[0] == \"init\":\n            thickness = float(args[1])\n            tip = (args[2])\n            barrel = (args[3])\n            grafite = Pencil(thickness, tip, barrel)\n        if args [0] == \"show\":\n            print(grafite)\n\nmain()",
+            "content": "@@ -261,16 +261,48 @@\n ss:float\n+, tip: Lead %7C None, barrel: Lead\n ):%0A     \n@@ -351,28 +351,14 @@\n .tip\n-: Lead %7C None = None\n+ = tip\n %0A   \n@@ -377,25 +377,17 @@\n rrel\n-: list%5BLead%5D = %5B%5D\n+ = barrel\n %0A%0A  \n",
             "lines": "35"
+        },
+        {
+            "label": "2025-11-18_19-44-50",
+            "content": "@@ -845,16 +845,29 @@\n hickness\n+, tip, barrel\n )%0A      \n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-18_19-45-12",
+            "content": "@@ -748,16 +748,75 @@\n rgs%5B1%5D)%0A\n+            tip = (args%5B2%5D)%0A            barrel = (args%5B3%5D)%0A\n         \n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-11-18_19-45-18",
+            "content": "@@ -462,40 +462,8 @@\n .tip\n- if self.tip is not None else ''\n %7D%5D, \n@@ -496,12 +496,8 @@\n    %0A\n- %0A%0A%0A\n def \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-11-18_19-56-28",
+            "content": "@@ -167,24 +167,25 @@\n rdness%0A%0A    \n+#\n def __str__(\n@@ -203,62 +203,16 @@\n     \n+#\n return \n-f'%7Bself.thickness%7D:%7Bself.size%7D:%7Bself.hardness%7D'\n %0A%0Acl\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-19_00-08-24",
+            "content": "@@ -447,69 +447,8 @@\n f):%0A\n-        tambor = ''.join(str(lead) for lead in self.barrel) %0A\n     \n@@ -549,22 +549,27 @@\n mbor: %3C%7B\n-tambor\n+self.barrel\n %7D%3E%22%0A    \n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-11-19_00-13-46",
+            "content": "@@ -629,78 +629,8 @@\n    %0A\n-    def insert(self, thickness:float, hardness: str, size: int):%0A    %0A\n  %0A%0A%0A\n",
+            "lines": "37"
+        },
+        {
+            "label": "2025-11-19_00-23-52",
+            "content": "@@ -694,70 +694,8 @@\n t):%0A\n-        if thickness != self.thickness:%0A            %0A        %0A\n     \n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-11-19_00-24-29",
+            "content": "@@ -746,62 +746,8 @@\n     \n-print(%22fail: calibre incompativel%22)%0A            return\n %0A   \n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-11-19_00-24-53",
+            "content": "@@ -1172,80 +1172,8 @@\n ite)\n-%0A        if args %5B0%5D == 'insert':%0A            thickness = float(args%5B1%5D)\n %0A%0Ama\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-11-19_00-25-54",
+            "content": "@@ -809,77 +809,8 @@\n     \n-new = Lead(thickness, size, hardness)%0A        self.barrel.append(new)\n %0A   \n",
+            "lines": "45"
+        },
+        {
+            "label": "2025-11-19_00-27-28",
+            "content": "@@ -1313,125 +1313,8 @@\n %5B1%5D)\n-%0A            hardness = args%5B2%5D%0A            size = int(args%5B3%5D)%0A            grafite.insert(thickness, hardness, size)\n %0A%0Ama\n",
+            "lines": "46"
+        },
+        {
+            "label": "2025-11-19_00-29-20",
+            "content": "@@ -775,26 +775,9 @@\n mpat\n-%C3%AD%22 %5C%0A            %22\n+i\n vel%22\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-19_00-29-45",
+            "content": "@@ -472,19 +472,17 @@\n oin(\n-f'%5B%7B\n+str(\n lead\n-%7D%5D'\n+)\n  for\n@@ -502,16 +502,17 @@\n .barrel)\n+ \n %0A       \n@@ -772,16 +772,33 @@\n ncompat%C3%AD\n+%22 %5C%0A            %22\n vel%22)%0A  \n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-11-19_00-31-43",
+            "content": "@@ -1343,9 +1343,9 @@\n rgs%5B\n-3\n+2\n %5D%0A  \n@@ -1370,17 +1370,17 @@\n nt(args%5B\n-2\n+3\n %5D)%0A     \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-19_00-32-17",
+            "content": "@@ -1343,9 +1343,9 @@\n rgs%5B\n-2\n+3\n %5D%0A  \n@@ -1370,17 +1370,17 @@\n nt(args%5B\n-3\n+2\n %5D)%0A     \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-19_00-32-25",
+            "content": "@@ -819,32 +819,38 @@\n  Lead(thickness,\n+ size,\n  hardness, size)\n@@ -842,22 +842,16 @@\n hardness\n-, size\n )%0A      \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-19_00-34-28",
+            "content": "@@ -879,68 +879,8 @@\n new)\n-%0A%0A    def pull (self):%0A        self.tip = self.barrel.pop(0)\n %0A   \n@@ -1431,64 +1431,8 @@\n ize)\n-%0A        if args %5B0%5D == 'pull':%0A            grafite.pull\n %0A%0Ama\n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-11-19_00-44-49",
+            "content": "@@ -1543,17 +1543,16 @@\n ite.pull\n-()\n+%0A\n %0Amain()\n",
+            "lines": "54"
+        },
+        {
+            "label": "2025-11-19_00-45-28",
+            "content": "@@ -902,95 +902,8 @@\n f):%0A\n-        if self.tip is not None:%0A            print (%22fail: ja existe grafite no bico%22)%0A\n     \n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-11-19_00-46-18",
+            "content": "@@ -1032,104 +1032,8 @@\n    %0A\n-    def remove (self):%0A        aux = self.tip%0A        self.tip = None%0A        self.barrel = aux%0A\n  %0A%0A%0A\n",
+            "lines": "55"
+        },
+        {
+            "label": "2025-11-19_00-47-45",
+            "content": "@@ -1043,32 +1043,55 @@\n  remove (self):%0A\n+        aux = self.tip%0A\n         self.tip\n@@ -1106,16 +1106,33 @@\n         \n+self.barrel = aux\n %0A %0A%0A%0Adef\n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-11-19_00-48-39",
+            "content": "@@ -1055,31 +1055,8 @@\n f):%0A\n-        aux = self.tip%0A\n     \n@@ -1087,25 +1087,8 @@\n     \n-self.barrel = aux\n %0A %0A%0A\n@@ -1693,70 +1693,8 @@\n l()%0A\n-        if args %5B0%5D == 'remove':%0A            grafite.remove()%0A\n main\n",
+            "lines": "58"
+        },
+        {
+            "label": "2025-11-19_00-49-28",
+            "content": "@@ -1043,32 +1043,55 @@\n  remove (self):%0A\n+        aux = self.tip%0A\n         self.tip\n@@ -1105,16 +1105,34 @@\n %0A       \n+ self.barrel = aux\n %0A %0A%0A%0Adef\n",
+            "lines": "61"
+        },
+        {
+            "label": "2025-11-19_00-49-52",
+            "content": "@@ -1055,48 +1055,8 @@\n f):%0A\n-        self.barrel.insert(0, self.tip)%0A\n     \n",
+            "lines": "60"
+        },
+        {
+            "label": "2025-11-19_00-54-24",
+            "content": "@@ -1118,134 +1118,8 @@\n None\n-%0A%0A    def write (self):%0A        if self.tip is None:%0A            print ('fail: nao existe grafite no bico')%0A            return\n %0A   \n",
+            "lines": "61"
+        },
+        {
+            "label": "2025-11-19_01-12-24",
+            "content": "@@ -1920,69 +1920,8 @@\n e()%0A\n-        if args %5B0%5D == 'write':%0A            grafite.write()%0A%0A\n main\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-19_01-12-58",
+            "content": "@@ -1252,100 +1252,8 @@\n     \n- gasto = %7B'HB':1, '2B': 2, '4B':4, '6B':6%7D%5Bself.tip.hardness%5D%0A        self.tip.size -= gasto\n %0A %0A%0A\n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-11-19_01-25-22",
+            "content": "@@ -831,14 +831,8 @@\n ess,\n- size,\n  har\n@@ -832,24 +832,30 @@\n ss, hardness\n+, size\n )%0A        se\n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-28-33",
+            "content": "@@ -819,32 +819,38 @@\n  Lead(thickness,\n+ size,\n  hardness, size)\n@@ -834,38 +834,32 @@\n , size, hardness\n-, size\n )%0A        self.b\n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-28-46",
+            "content": "@@ -36,32 +36,43 @@\n thickness:float,\n+ size: int,\n  hardness: str, \n@@ -69,27 +69,16 @@\n ess: str\n-, size: int\n ): %0A    \n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-29-08",
+            "content": "@@ -234,23 +234,20 @@\n elf.\n-hadness\n+size\n %7D:%7Bself.\n size\n@@ -242,20 +242,24 @@\n %7D:%7Bself.\n-size\n+hardness\n %7D'%0A%0Aclas\n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-29-40",
+            "content": "@@ -125,52 +125,52 @@\n elf.\n-hardness = hardness%0A        self.size = size\n+size = size%0A        self.hardness = hardness\n %0A%0A  \n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-29-59",
+            "content": "@@ -48,19 +48,8 @@\n oat,\n- size: int,\n  har\n@@ -58,16 +58,27 @@\n ess: str\n+, size: int\n ): %0A    \n@@ -112,33 +112,8 @@\n ess%0A\n-        self.size = size%0A\n     \n@@ -140,16 +140,41 @@\n hardness\n+%0A        self.size = size\n %0A%0A    de\n@@ -234,20 +234,23 @@\n elf.\n-size\n+hadness\n %7D:%7Bself.\n hard\n@@ -245,24 +245,20 @@\n %7D:%7Bself.\n-hardness\n+size\n %7D'%0A%0Aclas\n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-30-08",
+            "content": "@@ -36,32 +36,43 @@\n thickness:float,\n+ size: int,\n  hardness: str, \n@@ -69,27 +69,16 @@\n ess: str\n-, size: int\n ): %0A    \n@@ -125,61 +125,52 @@\n elf.\n-hardness = hardness%0A        self.size = size%0A        \n+size = size%0A        self.hardness = hardness\n %0A%0A  \n",
+            "lines": "70"
+        },
+        {
+            "label": "2025-11-19_01-33-57",
+            "content": "@@ -166,16 +166,24 @@\n  = size%0A\n+        \n %0A%0A    de\n@@ -243,28 +243,28 @@\n elf.\n-hardness%7D:%7Bself.size\n+size%7D:%7Bself.hardness\n %7D'%0A%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-11-19_01-35-15",
+            "content": "@@ -1345,68 +1345,8 @@\n asto\n-%0A%0A        if self.tip.size %3C 10:%0A            self.tip = None\n %0A %0A%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-11-19_01-38-01",
+            "content": "@@ -1056,38 +1056,8 @@\n f):%0A\n-        if self.tip.size %3E10:%0A\n     \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_01-41-37",
+            "content": "@@ -1044,32 +1044,62 @@\n  remove (self):%0A\n+        if self.tip.size %3E10:%0A\n         self.bar\n@@ -1399,17 +1399,16 @@\n p.size %3C\n-=\n  10:%0A   \n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-19_01-42-10",
+            "content": "@@ -1379,52 +1379,8 @@\n 10:%0A\n-            self.barrel.insert(0, self.tip)%0A\n     \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_01-42-51",
+            "content": "@@ -1368,17 +1368,17 @@\n ip.size \n-=\n+%3C\n = 10:%0A  \n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-19_01-43-07",
+            "content": "@@ -1430,16 +1430,34 @@\n         \n+ self.tip = None%0A \n %0A%0A%0Adef m\n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-19_01-43-20",
+            "content": "@@ -1409,20 +1409,24 @@\n sert(0, \n-None\n+self.tip\n )%0A      \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_01-45-47",
+            "content": "@@ -1399,22 +1399,31 @@\n .barrel.\n-append\n+insert(0, None)\n %0A       \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_01-46-01",
+            "content": "@@ -1056,38 +1056,8 @@\n f):%0A\n-        if self.tip.size %3E10:%0A\n     \n",
+            "lines": "74"
+        },
+        {
+            "label": "2025-11-19_01-48-45",
+            "content": "@@ -1056,61 +1056,8 @@\n f):%0A\n-        if self.tip is None:%0A            return%0A    %0A\n     \n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-19_01-49-59",
+            "content": "@@ -1135,36 +1135,32 @@\n ze %3E10:%0A        \n-    \n self.barrel.inse\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-19_01-50-05",
+            "content": "@@ -1430,24 +1430,82 @@\n  gasto%0A%0A    \n+    if self.tip.size == 10:%0A            self.barrel.append\n %0A           \n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-11-19_01-50-29",
+            "content": "@@ -1401,116 +1401,8 @@\n ess%5D\n-%0A%0A        if self.bico.size %3C gasto:%0A            print('fail: folha incompleta')%0A            return%0A        \n %0A   \n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-11-19_01-53-14",
+            "content": "@@ -1411,27 +1411,28 @@\n     if self.\n-tip\n+bico\n .size %3C gast\n",
+            "lines": "82"
+        },
+        {
+            "label": "2025-11-19_01-53-59",
+            "content": "@@ -1411,20 +1411,10 @@\n     \n-utilizavel =\n+if\n  sel\n@@ -1428,36 +1428,8 @@\n ize \n-- 10%0A%0A        if utilizavel \n %3C ga\n",
+            "lines": "82"
+        },
+        {
+            "label": "2025-11-19_01-57-19",
+            "content": "@@ -1475,39 +1475,8 @@\n to:%0A\n-            self.tip.size = 10%0A\n     \n",
+            "lines": "84"
+        },
+        {
+            "label": "2025-11-19_01-58-14",
+            "content": "@@ -1444,123 +1444,8 @@\n 10%0A%0A\n-        if self.tip.size %3C gasto:%0A            return %22fail: tamanho insuficiente%22%0A%0A        self.tip.size -= gasto%0A%0A\n     \n@@ -1582,16 +1582,38 @@\n         \n+self.tip.size -= gasto\n %0A%0A    %0A \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-11-19_02-02-39",
+            "content": "@@ -990,34 +990,53 @@\n o%22)%0A        \n-    return\n+self.tip = self.barrel.pop(0)\n %0A    %0A    de\n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-19_02-04-35",
+            "content": "@@ -932,37 +932,42 @@\n t None:%0A        \n+    \n print\n+ \n (%22fail: ja exist\n@@ -998,146 +998,18 @@\n     \n+    \n return\n-  # %E2%86%90 ESSENCIAL%0A%0A    if len(self.barrel) == 0:%0A        print(%22fail: tambor vazio%22)%0A        return%0A%0A    self.tip = self.barrel.pop(0)\n %0A   \n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-19_02-05-00",
+            "content": "@@ -932,36 +932,32 @@\n t None:%0A        \n-    \n print(%22fail: ja \n@@ -1012,20 +1012,16 @@\n ENCIAL%0A%0A\n-    \n     if l\n@@ -1042,22 +1042,16 @@\n ) == 0:%0A\n-      \n         \n@@ -1094,20 +1094,16 @@\n return%0A%0A\n-    \n     self\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-11-19_02-05-28",
+            "content": "@@ -989,28 +989,24 @@\n o%22)%0A        \n-    \n return  # %E2%86%90 \n@@ -1054,32 +1054,34 @@\n  0:%0A            \n+  \n print(%22fail: tam\n@@ -1088,28 +1088,24 @@\n bor vazio%22)%0A\n-    \n         retu\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-11-19_02-06-09",
+            "content": "@@ -949,17 +949,16 @@\n    print\n- \n (%22fail: \n@@ -985,16 +985,145 @@\n  bico%22)%0A\n+            return  # %E2%86%90 ESSENCIAL%0A%0A        if len(self.barrel) == 0:%0A            print(%22fail: tambor vazio%22)%0A            return%0A%0A\n         \n@@ -1610,24 +1610,59 @@\n             \n+return %22fail: tamanho insuficiente%22\n %0A%0A        se\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-11-19_02-07-27",
+            "content": "@@ -1439,24 +1439,25 @@\n ze - 10%0A\n+%0A\n         \n %0A%0A      \n@@ -1448,16 +1448,86 @@\n         \n+if self.tip.size %3C gasto:%0A            %0A%0A        self.tip.size -= gasto\n %0A%0A      \n@@ -1662,38 +1662,16 @@\n         \n-self.tip.size -= gasto\n %0A%0A    %0A \n",
+            "lines": "90"
+        },
+        {
+            "label": "2025-11-19_02-07-43",
+            "content": "@@ -1333,121 +1333,8 @@\n urn%0A\n-        %0A        if self.tip.size %3C= 10:%0A            print('fail: tamanho insuficiente')%0A            return%0A    %0A\n     \n",
+            "lines": "86"
+        },
+        {
+            "label": "2025-11-19_02-17-32",
+            "content": "class Lead:\n    def __init__(self, thickness:float, hardness: str, size: int): \n        self.thickness = thickness\n        self.hardness = hardness\n        self.size = size\n\n\n    def __str__(self):\n        return f'{self.thickness}:{self.hardness}:{self.size}'\n\nclass Pencil:\n    def __init__(self, thickness:float):\n        self.thickness = thickness\n        self.tip: Lead | None = None\n        self.barrel: list[Lead] = []\n\n    def __str__ (self):\n        tambor = ''.join(f'[{lead}]' for lead in self.barrel)\n        return f\"calibre: {self.thickness}, bico: [{self.tip if self.tip is not None else ''}], tambor: <{tambor}>\"\n    \n    def insert(self, thickness:float, hardness: str, size: int):\n        if thickness != self.thickness:\n            print(\"fail: calibre incompat\u00edvel\")\n            return\n        new = Lead(thickness, hardness, size)\n        self.barrel.append(new)\n\n    def pull (self):\n        if self.tip is not None:\n            print (\"fail: ja existe grafite no bico\")\n        self.tip = self.barrel.pop(0)\n    \n    def remove (self):\n        if self.tip is None:\n            return\n    \n        if self.tip.size >10:\n            self.barrel.insert(0, self.tip)\n        self.tip = None\n\n    def write (self):\n        if self.tip is None:\n            print ('fail: nao existe grafite no bico')\n            return\n        \n        if self.tip.size <= 10:\n            print('fail: tamanho insuficiente')\n            return\n    \n        gasto = {'HB':1, '2B': 2, '4B':4, '6B':6}[self.tip.hardness]\n\n        utilizavel = self.tip.size - 10\n        \n\n        if utilizavel < gasto:\n            self.tip.size = 10\n            print('fail: folha incompleta')\n            return\n        \n        self.tip.size -= gasto\n\n    \n           \n\n\ndef main():\n    grafite = Pencil\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n        if args[0] == \"end\":\n            break\n        if args[0] == \"init\":\n            thickness = float(args[1])\n            grafite = Pencil(thickness)\n        if args [0] == \"show\":\n            print(grafite)\n        if args [0] == 'insert':\n            thickness = float(args[1])\n            hardness = args[2]\n            size = int(args[3])\n            grafite.insert(thickness, hardness, size)\n        if args [0] == 'pull':\n            grafite.pull()\n        if args [0] == 'remove':\n            grafite.remove()\n        if args [0] == 'write':\n            grafite.write()\n\nmain()",
+            "lines": "91"
         }
     ]
 }
